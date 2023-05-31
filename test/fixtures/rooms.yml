@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  planet: MyString
+  price: 1
+  description: MyString
+  total_occupancy: 1
+  total_bedrooms: 1
+  total_bathrooms: 1
+  home_type: MyString
+  section: MyString
+
+two:
+  user_id: 1
+  planet: MyString
+  price: 1
+  description: MyString
+  total_occupancy: 1
+  total_bedrooms: 1
+  total_bathrooms: 1
+  home_type: MyString
+  section: MyString

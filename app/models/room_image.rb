@@ -1,0 +1,2 @@
+class RoomImage < ApplicationRecord
+end
