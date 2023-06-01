@@ -19,7 +19,7 @@ class ReviewsController < ApplicationController
     if @review.valid?
       render :show
     else
-      render json: { errors: @product.errors.full_messages }, status: :unprocessable_entity
+      render json: { errors: @review.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
@@ -34,7 +34,7 @@ class ReviewsController < ApplicationController
     if @room.valid?
       render :show
     else
-      render json: { errors: @product.errors.full_messages }, status: :unprocessable_entity
+      render json: { errors: @review.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
