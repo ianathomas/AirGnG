@@ -24,4 +24,25 @@ class ReservationsController < ApplicationController
 
     render :show
   end
+
+  def update
+    @reservation = Reservation.find_by(id: paras["id"])
+    @reservation.update(
+      start_date: params["start_date"] || @reservation.start_date,
+      end_date: params["end_state"] || @reservation.end_date,
+      price: params["price"] || @reservation.price,
+    )
+    if @reservation.valid?
+      render :show
+    else
+      render json: { errors: @reservation.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    reservation = Reservation.find_by(id: params["id"])
+    reservation.destroy
+
+    render json: { message: "Reservation destroyed successfully"}
+  end
 end
