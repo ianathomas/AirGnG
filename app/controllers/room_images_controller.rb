@@ -1,2 +1,3 @@
 class RoomImagesController < ApplicationController
-
+  
+end
