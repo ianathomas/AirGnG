@@ -3,7 +3,7 @@ class ReservationsController < ApplicationController
 
   def index
     @reservations = Reservation.all
-    
+
     render :index
   end
 
@@ -19,17 +19,17 @@ class ReservationsController < ApplicationController
       room_id: current_user.room.id,
       start_date: params["start_date"],
       end_date: params["end_date"],
-      price: current_user.room.price
+      price: current_user.room.price,
     )
 
     render :show
   end
 
   def update
-    @reservation = Reservation.find_by(id: paras["id"])
+    @reservation = Reservation.find_by(id: params["id"])
     @reservation.update(
       start_date: params["start_date"] || @reservation.start_date,
-      end_date: params["end_state"] || @reservation.end_date,
+      end_date: params["end_date"] || @reservation.end_date,
       price: params["price"] || @reservation.price,
     )
     if @reservation.valid?
@@ -43,6 +43,6 @@ class ReservationsController < ApplicationController
     reservation = Reservation.find_by(id: params["id"])
     reservation.destroy
 
-    render json: { message: "Reservation destroyed successfully"}
+    render json: { message: "Reservation destroyed successfully" }
   end
 end
