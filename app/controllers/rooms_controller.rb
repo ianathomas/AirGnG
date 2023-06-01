@@ -1,6 +1,10 @@
 class RoomsController < ApplicationController
-  before_action :authenticate_admin, except: [:index, :show]
+  before_action :authenticate_admin, except: [:index, :show, :home]
 
+  def home
+    render "rooms/home"
+  end
+  
   def index
     @rooms = Room.all
     render :index
