@@ -13,7 +13,7 @@ class RoomsController < ApplicationController
 
   def create
     @room = Room.create({
-      user_id: params["name"],
+      user_id: params["user_id"],
       planet: params["planet"],
       price: params["price"],
       total_occupancy: params["total_occupancy"],
@@ -24,17 +24,17 @@ class RoomsController < ApplicationController
     })
 
     if @room.valid?
-      Image.create(room_id: @room.id, url: params["image_url"])
+      Room_Image.create(room_id: @room.id, url: params["image_url"])
       render :show
     else
-      render json: { errors: @product.errors.full_messages }, status: :unprocessable_entity
+      render json: { errors: @room.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
   def update
     @room = Room.find_by(id: params["id"])
     @room.update(
-      user_id: params["name"],
+      user_id: params["user_id"],
       planet: params["planet"],
       price: params["price"],
       total_occupancy: params["total_occupancy"],
@@ -47,7 +47,7 @@ class RoomsController < ApplicationController
     if @room.valid?
       render :show
     else
-      render json: { errors: @product.errors.full_messages }, status: :unprocessable_entity
+      render json: { errors: @room.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
