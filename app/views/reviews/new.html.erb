@@ -1,0 +1,30 @@
+
+<h1>Write Your Own Review</h1>
+
+
+<%= form_with model: @review do |form| %>
+  <div>
+    <%= form.label :reservation_id %><br>
+    <%= form.text_field :reservation_id %>
+ 
+  </div>
+
+  <div>
+    <%= form.label :rating %><br>
+    <%= form.text_area :rating %><br>
+  
+  </div>
+
+  <div>
+    <%= form.label :comment %><br>
+    <%= form.text_area :comment %><br>
+ 
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+
+
