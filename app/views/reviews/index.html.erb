@@ -1,0 +1,9 @@
+<h1>Check Out Our Reviews</h1>
+<% @reviews.each do |review| %>
+  <p>Reservation_Id: <%= review.reservation_id %></p>
+  <p>Rating: <%= review.rating %></p>
+  <p>Comment: <%= review.comment%></p>
+
+  <% end %>
+  
+  <%= link_to "Write Your Own Review", new_review_path %>

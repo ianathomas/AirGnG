@@ -16,10 +16,10 @@ class ReviewsController < ApplicationController
       comment: params["comment"],
     })
 
-    if @review.valid?
-      render :show
+    if @review.save
+      redirect_to @review
     else
-      render json: { errors: @review.errors.full_messages }, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -43,5 +43,11 @@ class ReviewsController < ApplicationController
     @review.destroy
 
     render json: { message: "Review Destroyed" }
+  end
+
+  private
+
+  def review_params
+    params.require(:reservation_id).permit(:rating, :comment)
   end
 end
