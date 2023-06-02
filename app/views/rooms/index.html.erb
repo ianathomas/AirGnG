@@ -11,4 +11,24 @@
   <p>Section: <%= room.section %></p>
   <img src="<%= room.room_images %>" width="100" />
   <a href="/rooms/<%= room.id %>">More Info...</a>
-<% end %>
+  <%# <a href="/reservations/new">Book Now...</a> %>
+
+  <h1>New Reservation</h1>
+<%= form_with model: @reservation do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :start_date %>
+    <%= form.text_field :start_date %>
+  </div>
+  <div>
+    <%= form.label :end_date %>
+    <%= form.text_field :end_date %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+  <% end%>
+<% end %> 
