@@ -36,22 +36,24 @@
               <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <a class="nav-link" href="#"><%= link_to "Book a Reservation", new_reservation_path %></a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown
+                Reviews
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">View all rooms!</a></li>
-                <li><a class="dropdown-item" href="#">Ready? Make a Reservation here!</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Already leaving? Write a review here!</a></li>
+                <li><a class="dropdown-item" href="#"><%= link_to "View all reviews!", reviews_path %></a></li>
+                <li><a class="dropdown-item" href="#"><%= link_to "Write your own review!", new_review_path %></a></li>
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled">Disabled</a>
+              <a class="nav-link" href="#"><%= link_to "Create an Account", signup_path %></a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><%= link_to "Already have an account? Login here!", login_path %></a>
+            </li>
+
           </ul>
           <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -95,7 +97,7 @@
       </div>
     </div>
         <div class="card-body">
-          <p class="card-text">Room Uno</p>
+          <p class="card-text"><%room.planet%></p>
         </div>
       </div>
     <%end%>
