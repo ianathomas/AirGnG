@@ -1,0 +1,18 @@
+<h1>New Reservation</h1>
+<%= form_with model: @reservation do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :width %>
+    <%= form.text_field :width %>
+  </div>
+  <div>
+    <%= form.label :height %>
+    <%= form.text_field :height %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end%>

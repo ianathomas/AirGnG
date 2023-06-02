@@ -13,6 +13,11 @@ class ReservationsController < ApplicationController
     render :show
   end
 
+  def new 
+    @reservation = Reservation.new
+    render :new
+  end
+
   def create
     @reservation = Reservation.create(
       user_id: current_user.id,
